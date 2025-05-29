@@ -8,7 +8,7 @@ graph TD
   C -->|No| E[Rethink]
   E --> B
 
-```mermaid 
+```mermaid
 graph TD
     subgraph Producer Project
         subgraph Producer VPC (vpc-producer)

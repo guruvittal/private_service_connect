@@ -1,23 +1,9 @@
 # private_service_connect
 
-```mermaid 
+```mermaid
 graph TD
-    subgraph Producer Project
-        subgraph Producer VPC (vpc-producer)
-            Producer_VM[VM Instance (web-server)]
-            Internal_LB[Internal HTTP(S) Load Balancer]
-            SA[Private Service Connect Service Attachment]
-            Producer_VM -- Serves HTTP --> Internal_LB
-            Internal_LB -- Exposes --> SA
-        end
-    end
-
-    subgraph Consumer Project
-        subgraph Consumer VPC (vpc-consumer)
-            Consumer_VM[VM Instance (client-vm)]
-            PSC_Endpoint[Private Service Connect Endpoint (Internal IP)]
-            Consumer_VM -- Accesses --> PSC_Endpoint
-        end
-    end
-
-    SA -- Private Connect --> PSC_Endpoint
+  A[Start] --> B(Process)
+  B --> C{Decision}
+  C -->|Yes| D[End]
+  C -->|No| E[Rethink]
+  E --> B

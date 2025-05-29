@@ -11,3 +11,13 @@ graph TD
             Internal_LB -- Exposes --> SA
         end
     end
+
+    subgraph Consumer Project
+        subgraph Consumer VPC (vpc-consumer)
+            Consumer_VM[VM Instance (client-vm)]
+            PSC_Endpoint[Private Service Connect Endpoint (Internal IP)]
+            Consumer_VM -- Accesses --> PSC_Endpoint
+        end
+    end
+
+    SA -- Private Connect --> PSC_Endpoint
